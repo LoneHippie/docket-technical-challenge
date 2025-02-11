@@ -21,7 +21,7 @@ export type Pokemon = {
   color: Color;
   id: number;
   name: string;
-  types: Array<Type>;
+  types: Type[];
   weight: number;
   sprite: string | null;
   specs: Specs;

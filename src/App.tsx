@@ -79,6 +79,7 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
     color: ${({ theme }) => theme.white};
     padding-left: 12px;
     padding-right: 12px;
+    box-shadow: 4px 2px 8px black;
 
     z-index: 1000;
 
@@ -99,6 +100,8 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
     margin-top: 48px;
     padding-left: 24px;
     padding-right: 24px;
+    height: 100vh;
+    background-color: ${({ theme }) => theme.pokedex};
 
     &__grid {
       position: absolute;
@@ -113,6 +116,7 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
       grid-gap: 8px;
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(6, 1fr);
+      background-color: ${({ theme }) => theme.pokedex};
     }
   }
 `;
