@@ -1,54 +1,45 @@
 import styled from "styled-components";
 import { Theme, theme } from "./context/theme/theme";
-import { useCallback, useState } from "react";
 import { Button, Card, Searchbar } from "./components";
 import { genOptions, typeOptions } from "./consts/consts";
-import usePokemonApi from "./context/api";
-import { Pokemon } from "./context/interfaces/pokemon";
+import useApp from "./useApp";
 
 function App() {
-  const { getByGen, getByType, getByName } = usePokemonApi();
-
-  const [pokeList, setPokeList] = useState<Pokemon[]>([]);
-
-  const handleOnNameSearch = useCallback(
-    async (name: string) => {
-      const list = await getByName(name);
-      setPokeList(list);
-    },
-    [getByName]
-  );
-  const handleOnSelectGen = useCallback(
-    async (value: string) => {
-      const list = await getByGen(value);
-      setPokeList(list);
-    },
-    [getByGen]
-  );
-  const handleOnTypeSelect = useCallback(
-    async (value: string) => {
-      const list = await getByType(value);
-      setPokeList(list);
-    },
-    [getByType]
-  );
+  const {
+    searchText,
+    genSelectButtonText,
+    typeSelectButtonText,
+    isOpenGenSelect,
+    isOpenTypeSelect,
+    toggleIsOpenGenSelect,
+    toggleIsOpenTypeSelect,
+    handleOnNameSearch,
+    handleOnSelectGen,
+    handleOnTypeSelect,
+    pokeList,
+  } = useApp();
 
   return (
     <StyledContainer theme={theme}>
       <header className="topbar">
         <Searchbar
           className="topbar__search"
+          value={searchText}
           onSearchChange={handleOnNameSearch}
         />
         <div className="topbar__buttons">
           <Button
-            placeholder="Gen select"
+            value={genSelectButtonText}
             options={genOptions}
+            isOpen={isOpenGenSelect}
+            onClick={toggleIsOpenGenSelect}
             onSelect={handleOnSelectGen}
           />
           <Button
-            placeholder="Type select"
+            value={typeSelectButtonText}
             options={typeOptions}
+            isOpen={isOpenTypeSelect}
+            onClick={toggleIsOpenTypeSelect}
             onSelect={handleOnTypeSelect}
           />
         </div>

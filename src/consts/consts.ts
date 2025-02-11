@@ -1,3 +1,9 @@
+export const inputPlaceholders = {
+  genSelect: "Gen Select",
+  typeSelect: "Type Select",
+  search: "",
+};
+
 const pokemonTypes = [
   "normal",
   "fighting",

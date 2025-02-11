@@ -1,35 +1,23 @@
-import React, { useCallback, useState } from "react";
-import useFlag from "../../tools/hooks/useFlags";
 import styled from "styled-components";
 import { Theme } from "../../context/theme/theme";
 
 interface Props {
-  placeholder: string;
   options: Record<string, string>[];
-  onSelect: (value: string) => void;
+  onSelect: (key: string, value: string) => void;
+  onClick: () => void;
+  value: string;
+  isOpen: boolean;
 }
 
-const Button = ({ placeholder, options, onSelect }: Props) => {
-  const [isOpen, , setFalseIsOpen, toggleIsOpen] = useFlag();
-  const [buttonText, setButtonText] = useState(placeholder);
-
-  const handleSelect = useCallback(
-    (key: string, value: string) => {
-      setButtonText(key);
-      onSelect(value);
-      setFalseIsOpen();
-    },
-    [onSelect, setFalseIsOpen]
-  );
-
+const Button = ({ options, onSelect, value, onClick, isOpen }: Props) => {
   return (
     <StyledContainer style={{ position: "relative" }}>
-      <button onClick={toggleIsOpen}>{buttonText}</button>
+      <button onClick={onClick}>{value}</button>
       {isOpen && (
         <ul>
           {options.map((option) => {
             return Object.entries(option).map(([key, value]) => (
-              <li onClick={() => handleSelect(key, value)}>{key}</li>
+              <li onClick={() => onSelect(key, value)}>{key}</li>
             ));
           })}
         </ul>

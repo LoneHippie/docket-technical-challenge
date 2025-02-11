@@ -1,35 +1,18 @@
-import React, { useCallback, useState } from "react";
+import React from "react";
 import styled from "styled-components";
-import { debounce } from "lodash";
 
 interface Props {
   className: string;
-  onSearchChange: (search: string) => void;
+  onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string;
 }
 
-const Searchbar = ({ className, onSearchChange }: Props) => {
-  const [search, setSearch] = useState("");
-
-  const handleChangeSearch = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      setSearch(event.target.value);
-
-      if (event.target.value) {
-        const debouncedSearch = debounce(() => {
-          onSearchChange(event.target.value);
-        }, 400);
-
-        debouncedSearch();
-      }
-    },
-    [onSearchChange]
-  );
-
+const Searchbar = ({ className, onSearchChange, value }: Props) => {
   return (
     <StyledSearchbar
       className={className}
-      value={search}
-      onChange={handleChangeSearch}
+      value={value}
+      onChange={onSearchChange}
     />
   );
 };

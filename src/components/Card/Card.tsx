@@ -1,4 +1,3 @@
-import React from "react";
 import { Pokemon } from "../../context/interfaces/pokemon";
 import styled from "styled-components";
 import { theme, Theme } from "../../context/theme/theme";
