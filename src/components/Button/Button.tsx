@@ -41,6 +41,12 @@ const Button = ({ placeholder, options, onSelect }: Props) => {
 const StyledContainer = styled("div")<{ theme: Theme }>`
   position: relative;
 
+  & > button {
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 6px 12px;
+  }
+
   & > ul {
     position: absolute;
     top: 100%;

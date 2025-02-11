@@ -1,13 +1,13 @@
 import React, { useCallback, useState } from "react";
 import styled from "styled-components";
 import { debounce } from "lodash";
-import { searchQuery } from "../../context/api/pokeapi";
 
 interface Props {
   className: string;
+  onSearchChange: (search: string) => void;
 }
 
-const Searchbar = ({ className }: Props) => {
+const Searchbar = ({ className, onSearchChange }: Props) => {
   const [search, setSearch] = useState("");
 
   const handleChangeSearch = useCallback(
@@ -16,13 +16,13 @@ const Searchbar = ({ className }: Props) => {
 
       if (event.target.value) {
         const debouncedSearch = debounce(() => {
-          searchQuery(event.target.value);
+          onSearchChange(event.target.value);
         }, 400);
 
         debouncedSearch();
       }
     },
-    []
+    [onSearchChange]
   );
 
   return (
