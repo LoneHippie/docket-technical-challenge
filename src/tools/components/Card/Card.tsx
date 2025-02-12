@@ -1,7 +1,7 @@
-import { Pokemon } from "../../context/interfaces/pokemon";
+import { Pokemon } from "../../../context/interfaces/pokemon";
 import styled from "styled-components";
-import { theme, Theme } from "../../context/theme/theme";
-import useStyles from "../../tools/hooks/useStyles";
+import { theme, Theme } from "../../../context/theme/theme";
+import useStyles from "../../hooks/useStyles";
 
 interface Props {
   pokemon: Pokemon;

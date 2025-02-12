@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Theme } from "../../context/theme/theme";
+import { Theme } from "../../../context/theme/theme";
 
 interface Props {
   options: Record<string, string>[];

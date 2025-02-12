@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Theme, theme } from "./context/theme/theme";
-import { Button, Card, Searchbar } from "./components";
+import { Button, Card, Searchbar } from "./tools/components";
 import { genOptions, typeOptions } from "./consts/consts";
 import useApp from "./useApp";
 import PokeBall from "./assets/pokeball.svg";

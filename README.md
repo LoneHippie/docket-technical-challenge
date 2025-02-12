@@ -1,50 +1,15 @@
-# React + TypeScript + Vite
+# Docket take-home technical assignment: Masterdex
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Hello! Here's a larger project I whipped up for the technical assignment. It's a simple SPA made with **Vite**, **Typescript** and **Playwright**. In part this is a remake of one of my older projects made with the goal of displaying some of my current skills in the technologies listed above.
 
-Currently, two official plugins are available:
+## Structure
+- API fetching, interfaces for data and theme are located in `src/contexts`
+- Constant values (primarily used as input options) are location in `src/consts`
+- Components and utility hooks are located under `src/tools` (if this were not an SPA, view specific components and hooks would be located in their respective folders for those views)
+- Automation tests are located separately in `tests`
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+## Features
+- Searches using a (as type safe as possible for a public API) graphql wrapper for a public pokemon API, the setup for which can be explored in `src/contexts/api`
+- Fetches results by search via a debounced request with the searchbar
+- Fetches results by pokemon generation or type via dropdown buttons
+- Theme based CSS to create unique designs for cards, managed by running the returned data through a custom `useStyles` hook located in `src/tools/hooks/useStyles`
