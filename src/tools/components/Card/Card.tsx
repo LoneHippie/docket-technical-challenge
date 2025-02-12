@@ -43,7 +43,7 @@ const StyledCard = styled("div")<{
   flex-direction: column;
   padding: 4px;
   border-radius: 4px;
-  box-shadow: ${({ theme }) => `2px 2px 0.4px 0.2px ${theme.text}`};
+  box-shadow: ${({ theme }) => `2px 2px 0.4px 0.2px ${theme.palette.text}`};
   background-color: ${({ backgroundColor }) => backgroundColor};
 
   .titleSection {

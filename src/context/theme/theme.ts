@@ -1,33 +1,39 @@
 export type Theme = typeof theme;
 
 export const theme = {
-  //general colors
-  black: "#000000",
-  white: "#FFFFFF",
+  palette: {
+    //general colors
+    black: "#000000",
+    white: "#FFFFFF",
 
-  pokedex: "#ff0000",
-  pokedex2: "#e01414",
+    pokedex: "#ff0000",
+    pokedex2: "#e01414",
 
-  focus: "#2cfc2c",
-  text: "#2F4F4F",
+    focus: "#2cfc2c",
+    text: "#2F4F4F",
 
-  //type colors
-  normal: "#A9A9A9",
-  fire: "#EE8130",
-  water: "#6390F0",
-  electric: "#F7D02C",
-  grass: "#7AC74C",
-  ice: "#96D9D6",
-  fighting: "#C22E28",
-  poison: "#A33EA1",
-  ground: "#E2BF65",
-  flying: "#A98FF3",
-  psychic: "#F95587",
-  bug: "#A6B91A",
-  rock: "#B6A136",
-  ghost: "#735797",
-  dragon: "#6F35FC",
-  dark: "#705746",
-  steel: "#B7B7CE",
-  fairy: "#D685AD",
+    //type colors
+    normal: "#A9A9A9",
+    fire: "#EE8130",
+    water: "#6390F0",
+    electric: "#F7D02C",
+    grass: "#7AC74C",
+    ice: "#96D9D6",
+    fighting: "#C22E28",
+    poison: "#A33EA1",
+    ground: "#E2BF65",
+    flying: "#A98FF3",
+    psychic: "#F95587",
+    bug: "#A6B91A",
+    rock: "#B6A136",
+    ghost: "#735797",
+    dragon: "#6F35FC",
+    dark: "#705746",
+    steel: "#B7B7CE",
+    fairy: "#D685AD",
+  },
+  spacing: {
+    topbarHeight: 48,
+    containerPadding: 24,
+  },
 };

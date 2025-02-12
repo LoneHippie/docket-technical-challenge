@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Theme, theme } from "../../../context/theme/theme";
 
 interface Props {
   className: string;
@@ -11,6 +12,7 @@ interface Props {
 const Searchbar = ({ className, onSearchChange, value, testID }: Props) => {
   return (
     <StyledSearchbar
+      theme={theme}
       data-test-id={testID}
       className={className}
       value={value}
@@ -19,14 +21,14 @@ const Searchbar = ({ className, onSearchChange, value, testID }: Props) => {
   );
 };
 
-const StyledSearchbar = styled("input")`
+const StyledSearchbar = styled("input")<{ theme: Theme }>`
   height: 24px;
   padding: 6px 12px;
-  color: ${({ theme }) => theme.text};
+  color: ${({ theme }) => theme.palette.text};
   font-size: 14px;
   border-radius: 8px;
-  border-right: ${({ theme }) => `2.5px solid ${theme.text}`};
-  border-bottom: ${({ theme }) => `2.5px solid ${theme.text}`};
+  border-right: ${({ theme }) => `2.5px solid ${theme.palette.text}`};
+  border-bottom: ${({ theme }) => `2.5px solid ${theme.palette.text}`};
   border-top: none;
   border-left: none;
 

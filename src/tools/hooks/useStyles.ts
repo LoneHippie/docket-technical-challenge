@@ -33,7 +33,7 @@ const useStyles = (pokemon: Pokemon) => {
   }, [primaryType]);
 
   const backgroundColorByType = (type: string): string => {
-    return theme[type as keyof Theme];
+    return theme.palette[type as keyof Theme["palette"]];
   };
 
   const backgroundColor = useMemo(() => {

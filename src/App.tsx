@@ -65,19 +65,21 @@ function App() {
   );
 }
 
-const StyledContainer = styled("main")<{ theme: Theme }>`
+const StyledContainer = styled("main")<{
+  theme: Theme;
+}>`
   .topbar {
     position: fixed;
     top: 0;
     left: 0;
-    height: 48px;
+    height: ${({ theme }) => theme.spacing.topbarHeight}px;
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background-color: ${({ theme }) => theme.pokedex2};
-    color: ${({ theme }) => theme.white};
+    background-color: ${({ theme }) => theme.palette.pokedex2};
+    color: ${({ theme }) => theme.palette.white};
     padding-left: 12px;
     padding-right: 12px;
     box-shadow: 4px 2px 8px black;
@@ -98,11 +100,11 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
 
   .container {
     position: relative;
-    margin-top: 48px;
-    padding-left: 24px;
-    padding-right: 24px;
+    margin-top: ${({ theme }) => theme.spacing.topbarHeight}px;
+    padding-left: ${({ theme }) => theme.spacing.containerPadding}px;
+    padding-right: ${({ theme }) => theme.spacing.containerPadding}px;
     height: 100vh;
-    background-color: ${({ theme }) => theme.pokedex};
+    background-color: ${({ theme }) => theme.palette.pokedex};
 
     &__empty {
       display: flex;
@@ -120,7 +122,8 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
       position: absolute;
       top: 0;
       left: 0;
-      width: calc(100% - 48px);
+      width: ${({ theme }) =>
+        `calc(100% - ${theme.spacing.containerPadding * 2}px)`};
       padding-left: 24px;
       padding-right: 24px;
       overflow: scroll;
@@ -129,7 +132,7 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
       grid-gap: 8px;
       grid-template-columns: repeat(6, 1fr);
       grid-template-rows: repeat(6, 1fr);
-      background-color: ${({ theme }) => theme.pokedex};
+      background-color: ${({ theme }) => theme.palette.pokedex};
     }
   }
 `;
