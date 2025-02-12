@@ -7,11 +7,19 @@ interface Props {
   onClick: () => void;
   value: string;
   isOpen: boolean;
+  testID: string;
 }
 
-const Button = ({ options, onSelect, value, onClick, isOpen }: Props) => {
+const Button = ({
+  options,
+  onSelect,
+  value,
+  onClick,
+  isOpen,
+  testID,
+}: Props) => {
   return (
-    <StyledContainer style={{ position: "relative" }}>
+    <StyledContainer data-test-id={testID} style={{ position: "relative" }}>
       <button onClick={onClick}>{value}</button>
       {isOpen && (
         <ul>

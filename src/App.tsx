@@ -3,6 +3,7 @@ import { Theme, theme } from "./context/theme/theme";
 import { Button, Card, Searchbar } from "./components";
 import { genOptions, typeOptions } from "./consts/consts";
 import useApp from "./useApp";
+import PokeBall from "./assets/pokeball.svg";
 
 function App() {
   const {
@@ -23,12 +24,14 @@ function App() {
     <StyledContainer theme={theme}>
       <header className="topbar">
         <Searchbar
+          testID="Input_Search"
           className="topbar__search"
           value={searchText}
           onSearchChange={handleOnNameSearch}
         />
         <div className="topbar__buttons">
           <Button
+            testID="Button_GenSelect"
             value={genSelectButtonText}
             options={genOptions}
             isOpen={isOpenGenSelect}
@@ -36,6 +39,7 @@ function App() {
             onSelect={handleOnSelectGen}
           />
           <Button
+            testID="Button_TypeSelect"
             value={typeSelectButtonText}
             options={typeOptions}
             isOpen={isOpenTypeSelect}
@@ -45,11 +49,17 @@ function App() {
         </div>
       </header>
       <section className="container">
-        <div className="container__grid">
-          {pokeList.map((pokemon) => (
-            <Card key={pokemon.id} pokemon={pokemon} />
-          ))}
-        </div>
+        {pokeList.length ? (
+          <div data-test-id="Grid_Container" className="container__grid">
+            {pokeList.map((pokemon) => (
+              <Card key={pokemon.id} pokemon={pokemon} />
+            ))}
+          </div>
+        ) : (
+          <div data-test-id="Grid_Empty" className="container__empty">
+            <img src={PokeBall} />
+          </div>
+        )}
       </section>
     </StyledContainer>
   );
@@ -93,6 +103,18 @@ const StyledContainer = styled("main")<{ theme: Theme }>`
     padding-right: 24px;
     height: 100vh;
     background-color: ${({ theme }) => theme.pokedex};
+
+    &__empty {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+
+      & > img {
+        height: 248px;
+        width: 248px;
+      }
+    }
 
     &__grid {
       position: absolute;

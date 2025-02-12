@@ -5,11 +5,13 @@ interface Props {
   className: string;
   onSearchChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
   value: string;
+  testID: string;
 }
 
-const Searchbar = ({ className, onSearchChange, value }: Props) => {
+const Searchbar = ({ className, onSearchChange, value, testID }: Props) => {
   return (
     <StyledSearchbar
+      data-test-id={testID}
       className={className}
       value={value}
       onChange={onSearchChange}
