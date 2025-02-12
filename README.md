@@ -1,6 +1,6 @@
 # Docket take-home technical assignment: Masterdex
 
-Hello! Here's a larger project I whipped up for the technical assignment. It's a simple SPA made with **Vite**, **Typescript** and **Playwright**. In part this is a remake of one of my older projects made with the goal of displaying some of my current skills in the technologies listed above.
+Hello! Here's a larger project I whipped up for the technical assignment. It's a simple SPA made with **Vite**, **Typescript** and **Playwright**. In part this is a remake of one of my older projects made with the goal of displaying some of my current skills in the technologies listed above. I've chosen this as a sample project because I believe it shows my ability to connect a nd arrange the many moving parts of a modern React project while still having room to refactor and add new features.
 
 ## Structure
 - API fetching, interfaces for data and theme are located in `src/contexts`
